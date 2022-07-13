@@ -73,3 +73,4 @@ if __name__ == "__main__":
     input_main()
 
 #need to study the code above cuz it comes from an example. goal is to get it to interface with the ddj sb3
+#this looks like a good solution with mido... https://stackoverflow.com/questions/60182510/mido-how-to-get-midi-data-in-realtime-from-different-ports

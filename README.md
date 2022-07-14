@@ -8,5 +8,5 @@ other controllers will be possible
 # setup
 `pip install mido vgamepad`
 
-python main.py
+`python main.py`
 

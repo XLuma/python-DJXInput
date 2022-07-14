@@ -2,75 +2,49 @@ import os
 import sys
 import vgamepad
 import mido
+from mido import backends
+import rtmidi
 import pygame as pg
 import pygame.midi
 
-def printMIDIDeviceList():
-        for i in range(pygame.midi.get_count()):
-            print(pygame.midi.get_device_info(i), i)
-
-def _print_device_info():
-    for i in range(pygame.midi.get_count()):
-        r = pygame.midi.get_device_info(i)
-        (interf, name, input, output, opened) = r
-
-        in_out = ""
-        if input:
-            in_out = "(input)"
-        if output:
-            in_out = "(output)"
-
-        print(
-            "%2i: interface :%s:, name :%s:, opened :%s:  %s"
-            % (i, interf, name, opened, in_out)
-        )
-
-
-def input_main(device_id=None):
-    pg.init()
-    pg.fastevent.init()
-    event_get = pg.fastevent.get
-    event_post = pg.fastevent.post
-
-    pygame.midi.init()
-
-    _print_device_info()
-    printMIDIDeviceList()
-
-    if device_id is None:
-        input_id = pygame.midi.get_default_input_id()
-    else:
-        input_id = device_id
-
-    print("using input_id :%s:" % input_id)
-    i = pygame.midi.Input(input_id)
-
-    pg.display.set_mode((1, 1))
-
-    going = True
-    while going:
-        events = event_get()
-        for e in events:
-            if e.type in [pg.QUIT]:
-                going = False
-            if e.type in [pg.KEYDOWN]:
-                going = False
-            if e.type in [pygame.midi.MIDIIN]:
-                print(e)
-
-        if i.poll():
-            midi_events = i.read(10)
-            # convert them into pygame events.
-            midi_evs = pygame.midi.midis2events(midi_events, i.device_id)
-
-            for m_e in midi_evs:
-                event_post(m_e)
-
-    del i
-    pygame.midi.quit()
+def input_main():
+    gamepad = vgamepad.VX360Gamepad()
+    mido.set_backend('mido.backends.rtmidi')
+    print(mido.get_input_names())
+    inport = mido.open_input(mido.get_input_names()[0])
+    gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_A)
+    gamepad.update()
+    while(1):
+        msg = inport.receive()
+        if (msg.type != 'clock'):
+            if (msg.note == 56 and msg.velocity != 0): #up
+                gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_UP)
+            if (msg.note == 56 and msg.velocity == 0):
+                gamepad.release_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_UP)
+            if (msg.note == 57 and msg.velocity != 0):
+                gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_DOWN)
+            if (msg.note == 57 and msg.velocity == 0):
+                gamepad.release_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_DOWN)
+            if (msg.note == 40 and msg.velocity != 0):
+                gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_A)
+            if (msg.note == 40 and msg.velocity == 0):
+                gamepad.release_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_A)
+            if (msg.note == 41 and msg.velocity != 0):
+                gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_B)
+            if (msg.note == 41 and msg.velocity == 0):
+                gamepad.release_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_B)
+            gamepad.update()
+            print(msg)
 
 if __name__ == "__main__":
     input_main()
 
 #need to study the code above cuz it comes from an example. goal is to get it to interface with the ddj sb3
 #this looks like a good solution with mido... https://stackoverflow.com/questions/60182510/mido-how-to-get-midi-data-in-realtime-from-different-ports
+
+#So the way shit works is that we receive Message stuff (https://mido.readthedocs.io/en/latest/message_types.html) and in it,different attributes. The ones we only
+# care about are note_on events, and we only need to pay attention to: the note (tells which thing has been pressed, at least for our novation launchkey, might be different on the ddj-sb3)
+# and the velocity to tell if a key is released or not. This complicates a little bit for dj controllers because we have jogwheels lmao, but we will figure this out.
+#thers also control values, which go from 0 to 127, so with some maths for thresholds, we have.. item selectors and whatnots
+# the velocity is great for detecting pads, which should be the buttons of a controller. if we can simulate a button being held, we are gucci
+#the vgamepad library actually may allow this directly due to how it updates stuff... might have to try it out, and play with timings when doing midi->xinput

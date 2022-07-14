@@ -1,22 +1,12 @@
 import os
 import sys
-import vgamepad
+#import vgamepad
 import mido
 from mido import backends
 import rtmidi
-import pygame as pg
-import pygame.midi
 
-def input_main():
-    gamepad = vgamepad.VX360Gamepad()
-    mido.set_backend('mido.backends.rtmidi')
-    print(mido.get_input_names())
-    inport = mido.open_input(mido.get_input_names()[0])
-    gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_A)
-    gamepad.update()
-    while(1):
-        msg = inport.receive()
-        if (msg.type != 'clock'): # Need to maybe make a resource json to map notes to buttons
+def process_midi(mido.Message msg):
+    if (msg.type != 'clock'): # Need to maybe make a resource json to map notes to buttons
             if (msg.note == 56 and msg.velocity != 0): #up
                 gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_UP)
             if (msg.note == 56 and msg.velocity == 0):
@@ -35,6 +25,19 @@ def input_main():
                 gamepad.release_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_B)
             gamepad.update()
             print(msg)
+
+def input_main():
+    #gamepad = vgamepad.VX360Gamepad()
+    mido.set_backend('mido.backends.rtmidi')
+    print(mido.get_input_names())
+    inport = mido.open_input(mido.get_input_names()[0])
+    #gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_A)
+    #gamepad.update()
+    while(1):
+        msg = inport.receive()
+        if (msg.type != 'clock'): #use process midi
+            print(msg)
+        
 
 if __name__ == "__main__":
     input_main()

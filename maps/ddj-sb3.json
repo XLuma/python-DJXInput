@@ -1,0 +1,557 @@
+{
+    "name": "DDJ-SB3",
+    "manufacturer": "Pioneer",
+    "controllerVersion": "1.0",
+    "revision": "1",
+    "channels": [{
+      "channel": [{
+        "value": 0,
+        "name": "DECK_LEFT"
+      }, {
+        "value": 1,
+        "name": "DECK_RIGHT"
+      }],
+      "name": "DECK",
+      "elements": [{
+        "name": "Play/Pause",
+        "id": "001",
+        "type": 144,
+        "note": [11],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Shift Play/Pause",
+        "id": "002",
+        "type": 144,
+        "note": [71],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Cue",
+        "id": "003",
+        "type": 144,
+        "note": [12],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Shift Cue",
+        "id": "004",
+        "type": 144,
+        "note": [72],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Shift",
+        "id": "005",
+        "type": 144,
+        "note": [63],
+        "elementType": "BUTTON"
+      }, {
+        "name": "In loop/4 beat",
+        "id": "006",
+        "type": 144,
+        "note": [16],
+        "elementType": "BUTTON"
+      }, {
+        "name": "In adjust",
+        "id": "007",
+        "type": 144,
+        "note": [76],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Out loop",
+        "id": "008",
+        "type": 144,
+        "note": [17],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Out adjust",
+        "id": "009",
+        "type": 144,
+        "note": [78],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Loop exit",
+        "id": "010",
+        "type": 144,
+        "note": [77],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Active loop",
+        "id": "011",
+        "type": 144,
+        "note": [80],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Cue/Loop left",
+        "id": "012",
+        "type": 144,
+        "note": [81],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Loop delete",
+        "id": "013",
+        "type": 144,
+        "note": [62],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Cue/Loop right",
+        "id": "014",
+        "type": 144,
+        "note": [83],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Loop memory",
+        "id": "015",
+        "type": 144,
+        "note": [61],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Master sync",
+        "id": "016",
+        "type": 144,
+        "note": [88],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Tempo range",
+        "id": "017",
+        "type": 144,
+        "note": [96],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Headphones cue",
+        "id": "018",
+        "type": 144,
+        "note": [84],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Shift Headphones cue",
+        "id": "019",
+        "type": 144,
+        "note": [104],
+        "elementType": "BUTTON"
+      },  {
+        "name": "Performance hot cue",
+        "id": "020",
+        "type": 144,
+        "note": [27],
+        "elementType": "BUTTON"
+      },  {
+        "name": "Performance keyboard",
+        "id": "021",
+        "type": 144,
+        "note": [105],
+        "elementType": "BUTTON"
+      },  {
+        "name": "Performance beat loop",
+        "id": "022",
+        "type": 144,
+        "note": [109],
+        "elementType": "BUTTON"
+      },  {
+        "name": "Performance pad FX1",
+        "id": "023",
+        "type": 144,
+        "note": [30],
+        "elementType": "BUTTON"
+      },  {
+        "name": "Performance beat jump",
+        "id": "024",
+        "type": 144,
+        "note": [32],
+        "elementType": "BUTTON"
+      },  {
+        "name": "Performance pad FX2",
+        "id": "025",
+        "type": 144,
+        "note": [107],
+        "elementType": "BUTTON"
+      },  {
+        "name": "Performance sampler",
+        "id": "026",
+        "type": 144,
+        "note": [34],
+        "elementType": "BUTTON"
+      },  {
+        "name": "Performance key shift",
+        "id": "027",
+        "type": 144,
+        "note": [111],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Jogwheel slow",
+        "id": "028",
+        "type": 176,
+        "note": [33],
+        "elementType": "JOGWHEEL"
+      }, {
+        "name": "Jogwheel fast",
+        "id": "029",
+        "type": 176,
+        "note": [34],
+        "elementType": "JOGWHEEL"
+      }, {
+        "name": "Shift Jogwheel fast",
+        "id": "030",
+        "type": 176,
+        "note": [41],
+        "elementType": "JOGWHEEL"
+      }, {
+        "name": "Tempo high range",
+        "id": "031",
+        "type": 176,
+        "note": [32],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "Tempo low range",
+        "id": "032",
+        "type": 176,
+        "note": [0],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "Fader high range",
+        "id": "033",
+        "type": 176,
+        "note": [51],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "Fader low range",
+        "id": "034",
+        "type": 176,
+        "note": [19],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "Trim gain high range",
+        "id": "035",
+        "type": 176,
+        "note": [36],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "Trim gain low range",
+        "id": "036",
+        "type": 176,
+        "note": [4],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "EQ high high range",
+        "id": "037",
+        "type": 176,
+        "note": [39],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "EQ high low range",
+        "id": "038",
+        "type": 176,
+        "note": [7],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "EQ medium high range",
+        "id": "039",
+        "type": 176,
+        "note": [43],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "EQ medium low range",
+        "id": "040",
+        "type": 176,
+        "note": [11],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "EQ low high range",
+        "id": "041",
+        "type": 176,
+        "note": [47],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "EQ low low range",
+        "id": "042",
+        "type": 176,
+        "note": [15],
+        "elementType": "KNOB_LOW"
+      }]
+    }, {
+      "channel": [{
+        "value": 6,
+        "name": "MIXER"
+      }],
+      "name": "MIXER",
+      "elements": [{
+        "name": "Headphones master cue",
+        "id": "043",
+        "type": 144,
+        "note": [99],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Shift Headphones master cue",
+        "id": "044",
+        "type": 144,
+        "note": [120],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Load track left",
+        "id": "045",
+        "type": 144,
+        "note": [70],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Shift Load track left",
+        "id": "046",
+        "type": 144,
+        "note": [104],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Load track right",
+        "id": "047",
+        "type": 144,
+        "note": [71],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Shift Load track right",
+        "id": "048",
+        "type": 144,
+        "note": [122],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Navigation back",
+        "id": "049",
+        "type": 144,
+        "note": [65],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Shift Navigation back",
+        "id": "050",
+        "type": 144,
+        "note": [66],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Rotary",
+        "id": "051",
+        "type": 176,
+        "note": [64],
+        "elementType": "ROTARY"
+      }, {
+        "name": "Shift Rotary",
+        "id": "052",
+        "type": 176,
+        "note": [100],
+        "elementType": "ROTARY"
+      }, {
+        "name": "Master high range",
+        "id": "053",
+        "type": 176,
+        "note": [40],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "Master low range",
+        "id": "054",
+        "type": 176,
+        "note": [8],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "Headphones mixing high range",
+        "id": "055",
+        "type": 176,
+        "note": [44],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "Headphones mixing low range",
+        "id": "056",
+        "type": 176,
+        "note": [12],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "Headphones level high range",
+        "id": "057",
+        "type": 176,
+        "note": [45],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "Headphones level low range",
+        "id": "058",
+        "type": 176,
+        "note": [13],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "Filter left high range",
+        "id": "059",
+        "type": 176,
+        "note": [55],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "Filter left low range",
+        "id": "060",
+        "type": 176,
+        "note": [23],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "Filter right high range",
+        "id": "061",
+        "type": 176,
+        "note": [56],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "Filter right low range",
+        "id": "062",
+        "type": 176,
+        "note": [24],
+        "elementType": "KNOB_LOW"
+      }, {
+        "name": "Crossfader high range",
+        "id": "063",
+        "type": 176,
+        "note": [63],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "Crossfader low range",
+        "id": "064",
+        "type": 176,
+        "note": [31],
+        "elementType": "KNOB_LOW"
+      }]
+    }, {
+      "channel": [{
+        "value": 4,
+        "name": "EFFECTS"
+      }],
+      "name": "EFFECTS",
+      "elements": [{
+        "name": "Beat left",
+        "id": "065",
+        "type": 144,
+        "note": [74],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Beat auto",
+        "id": "066",
+        "type": 144,
+        "note": [102],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Beat right",
+        "id": "067",
+        "type": 144,
+        "note": [75],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Beat tap",
+        "id": "068",
+        "type": 144,
+        "note": [107],
+        "elementType": "BUTTON"
+      }, {
+        "name": "FX Select down",
+        "id": "069",
+        "type": 144,
+        "note": [99],
+        "elementType": "BUTTON"
+      }, {
+        "name": "FX Select up",
+        "id": "070",
+        "type": 144,
+        "note": [100],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Beat FX channel select 1",
+        "id": "071",
+        "type": 144,
+        "note": [16],
+        "elementType": "SELECT"
+      }, {
+        "name": "Beat FX channel select 2",
+        "id": "072",
+        "type": 144,
+        "note": [17],
+        "elementType": "SELECT"
+      }, {
+        "name": "Beat FX channel select master",
+        "id": "073",
+        "type": 144,
+        "note": [20],
+        "elementType": "SELECT"
+      }, {
+        "name": "FX on/off",
+        "id": "074",
+        "type": 144,
+        "note": [71],
+        "elementType": "BUTTON"
+      }, {
+        "name": "FX release",
+        "id": "075",
+        "type": 144,
+        "note": [67],
+        "elementType": "BUTTON"
+      }, {
+        "name": "FX level/depth high range",
+        "id": "076",
+        "type": 176,
+        "note": [34],
+        "elementType": "KNOB_HIGH"
+      }, {
+        "name": "FX level/depth low range",
+        "id": "077",
+        "type": 176,
+        "note": [2],
+        "elementType": "KNOB_LOW"
+      }]
+    }, {
+      "channel": [{
+        "value": 7,
+        "name": "PAD_LEFT"
+      }, {
+        "value": 8,
+        "name": "PAD_LEFT_SHIFT"
+      }, {
+        "value": 9,
+        "name": "PAD_RIGHT"
+      }, {
+        "value": 10,
+        "name": "PAD_RIGHT_SHIFT"
+      }],
+      "name": "Performance pad",
+      "elements": [{
+        "name": "Pad 1",
+        "id": "078",
+        "type": 144,
+        "note": [0, 16, 32, 48, 64, 80, 96, 112],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Pad 2",
+        "id": "079",
+        "type": 144,
+        "note": [1, 17, 33, 49, 65, 81, 97, 113],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Pad 3",
+        "id": "080",
+        "type": 144,
+        "note": [2, 18, 34, 50, 66, 82, 98, 114],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Pad 4",
+        "id": "081",
+        "type": 144,
+        "note": [3, 19, 35, 51, 67, 83, 99, 115],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Pad 5",
+        "id": "082",
+        "type": 144,
+        "note": [4, 20, 36, 52, 68, 84, 100, 116],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Pad 6",
+        "id": "083",
+        "type": 144,
+        "note": [5, 21, 37, 53, 69, 85, 101, 117],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Pad 7",
+        "id": "084",
+        "type": 144,
+        "note": [6, 22, 38, 54, 70, 86, 102, 118],
+        "elementType": "BUTTON"
+      }, {
+        "name": "Pad 8",
+        "id": "085",
+        "type": 144,
+        "note": [7, 23, 39, 55, 71, 87, 103, 119],
+        "elementType": "BUTTON"
+      }]
+    }]
+}

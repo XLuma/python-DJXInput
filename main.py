@@ -16,7 +16,7 @@ def input_main():
     gamepad.update()
     while(1):
         msg = inport.receive()
-        if (msg.type != 'clock'):
+        if (msg.type != 'clock'): # Need to maybe make a resource json to map notes to buttons
             if (msg.note == 56 and msg.velocity != 0): #up
                 gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_UP)
             if (msg.note == 56 and msg.velocity == 0):

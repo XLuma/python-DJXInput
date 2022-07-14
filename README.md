@@ -6,7 +6,7 @@ Currently, this program only supports the DDJ-SB3. The reason being it is the re
 other controllers will be possible
 
 # setup
-`pip install mido vgamepad`
+`pip install mido vgamepad rtmidi`
 
 `python main.py`
 

@@ -9,13 +9,16 @@ def json_to_button(msg: mido.Message, map):
     return buttons[map['map'][str(msg.note)]]
 
 def process_midi(msg: mido.Message, gamepad: vgamepad.VX360Gamepad, map: json = 0):
-    if (msg.type != 'clock'): #doesnt do control_change type stuff, gotta handle that eventually, also error handling for keys that arent defined.. maybe also look into changing rgb colors for pads
-        if (msg.velocity != 0):
-            gamepad.press_button(json_to_button(msg, map))
-        elif (msg.velocity == 0):
-            gamepad.release_button(json_to_button(msg, map))
-        gamepad.update()
-        print(msg)
+    try:
+        if (msg.type != 'clock'): #doesnt do control_change type stuff, gotta handle that eventually, also error handling for keys that arent defined.. maybe also look into changing rgb colors for pads
+            if (msg.velocity != 0):
+                gamepad.press_button(json_to_button(msg, map))
+            elif (msg.velocity == 0):
+                gamepad.release_button(json_to_button(msg, map))
+            gamepad.update()
+            print(msg)
+    except:
+        pass
 
 def input_main():
     gamepad = vgamepad.VX360Gamepad()

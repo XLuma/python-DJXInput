@@ -1,42 +1,36 @@
 import os
 import sys
-#import vgamepad
+import vgamepad
 import mido
-from mido import backends
-import rtmidi
+import json
+from constants import buttons
 
-def process_midi(mido.Message msg):
-    if (msg.type != 'clock'): # Need to maybe make a resource json to map notes to buttons
-            if (msg.note == 56 and msg.velocity != 0): #up
-                gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_UP)
-            if (msg.note == 56 and msg.velocity == 0):
-                gamepad.release_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_UP)
-            if (msg.note == 57 and msg.velocity != 0):
-                gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_DOWN)
-            if (msg.note == 57 and msg.velocity == 0):
-                gamepad.release_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_DOWN)
-            if (msg.note == 40 and msg.velocity != 0):
-                gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_A)
-            if (msg.note == 40 and msg.velocity == 0):
-                gamepad.release_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_A)
-            if (msg.note == 41 and msg.velocity != 0):
-                gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_B)
-            if (msg.note == 41 and msg.velocity == 0):
-                gamepad.release_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_B)
-            gamepad.update()
-            print(msg)
+def json_to_button(msg: mido.Message, map):
+    return buttons[map['map'][str(msg.note)]]
+
+def process_midi(msg: mido.Message, gamepad: vgamepad.VX360Gamepad, map: json = 0):
+    if (msg.type != 'clock'): #doesnt do control_change type stuff, gotta handle that eventually, also error handling for keys that arent defined.. maybe also look into changing rgb colors for pads
+        if (msg.velocity != 0):
+            gamepad.press_button(json_to_button(msg, map))
+        elif (msg.velocity == 0):
+            gamepad.release_button(json_to_button(msg, map))
+        gamepad.update()
+        print(msg)
 
 def input_main():
-    #gamepad = vgamepad.VX360Gamepad()
+    gamepad = vgamepad.VX360Gamepad()
     mido.set_backend('mido.backends.rtmidi')
     print(mido.get_input_names())
-    inport = mido.open_input(mido.get_input_names()[0])
-    #gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_A)
-    #gamepad.update()
+    
+    inport = mido.open_input(mido.get_input_names()[int(input('Select your midi device\n')) - 1]) # -1 cause idk i expect people to count from 1 rather than 0
+    gamepad.press_button(vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_A) # wake the controller up
+    gamepad.update()
+    file = open('maps/novation_launchkey_mini_mk3.json', 'rb') # need a way to get device name to map more easily
+    map = json.loads(file.read())
     while(1):
         msg = inport.receive()
-        if (msg.type != 'clock'): #use process midi
-            print(msg)
+        if (msg.type != 'clock'): #midi devices contantly send clock events. ignore those
+            process_midi(msg, gamepad, map)
         
 
 if __name__ == "__main__":

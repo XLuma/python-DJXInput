@@ -5,6 +5,15 @@ import mido
 import json
 from constants import buttons
 
+class Midi_Map:
+    #class to map midi notes to button. maybe need to create a note class and CC class ?
+    pass
+def create_mapping():
+    #function to create a map object to then be outputted as json
+    pass
+
+
+
 def json_to_button(msg: mido.Message, map):
     return buttons[map['map'][str(msg.note)]]
 
@@ -34,6 +43,7 @@ def input_main():
         msg = inport.receive()
         if (msg.type != 'clock'): #midi devices contantly send clock events. ignore those
             process_midi(msg, gamepad, map)
+            print(msg, map)
         
 
 if __name__ == "__main__":

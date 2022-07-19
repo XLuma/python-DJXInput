@@ -8,6 +8,9 @@ from constants import buttons
 class Midi_Map:
     #class to map midi notes to button. maybe need to create a note class and CC class ?
     pass
+    def __init__(self):
+        pass
+
 def create_mapping():
     #function to create a map object to then be outputted as json
     pass

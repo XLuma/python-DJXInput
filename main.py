@@ -4,18 +4,7 @@ import vgamepad
 import mido
 import json
 from constants import buttons
-
-class Midi_Map:
-    #class to map midi notes to button. maybe need to create a note class and CC class ?
-    pass
-    def __init__(self):
-        pass
-
-def create_mapping():
-    #function to create a map object to then be outputted as json
-    pass
-
-
+import midi
 
 def json_to_button(msg: mido.Message, map):
     return buttons[map['map'][str(msg.note)]]
@@ -28,7 +17,7 @@ def process_midi(msg: mido.Message, gamepad: vgamepad.VX360Gamepad, map: json = 
             elif (msg.velocity == 0):
                 gamepad.release_button(json_to_button(msg, map))
             gamepad.update()
-            print(msg)
+            print(msg, json_to_button(msg, map))
     except:
         pass
 
@@ -46,11 +35,17 @@ def input_main():
         msg = inport.receive()
         if (msg.type != 'clock'): #midi devices contantly send clock events. ignore those
             process_midi(msg, gamepad, map)
-            print(msg, map)
+            #print(msg)
         
+def test_map():
+    midi_map = midi.Midi_Map()
+    inport = mido.open_input(mido.get_input_names()[int(input('Select your midi device\n')) - 1])
+    midi_map.fill_object(inport)
+    inport.close()
+    midi_map.output_to_json()
 
 if __name__ == "__main__":
-    input_main()
+    test_map()
 
 #need to study the code above cuz it comes from an example. goal is to get it to interface with the ddj sb3
 #this looks like a good solution with mido... https://stackoverflow.com/questions/60182510/mido-how-to-get-midi-data-in-realtime-from-different-ports

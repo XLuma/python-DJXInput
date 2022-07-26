@@ -34,8 +34,8 @@ def input_main():
     while(1):
         msg = inport.receive()
         if (msg.type != 'clock'): #midi devices contantly send clock events. ignore those
-            process_midi(msg, gamepad, map)
-            #print(msg)
+            #process_midi(msg, gamepad, map)
+            print(msg)
         
 def test_map():
     midi_map = midi.Midi_Map()
@@ -47,8 +47,8 @@ def test_map():
     midi.Midi_Map.load_profile("maps/test.json")
 
 if __name__ == "__main__":
-    test_map()
-
+    #test_map()
+    input_main()
 #need to study the code above cuz it comes from an example. goal is to get it to interface with the ddj sb3
 #this looks like a good solution with mido... https://stackoverflow.com/questions/60182510/mido-how-to-get-midi-data-in-realtime-from-different-ports
 

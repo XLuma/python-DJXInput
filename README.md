@@ -13,7 +13,7 @@ To create a new map, see the json resources in the maps folder. Essentially, eve
 
 
 # setup
-`pip install mido vgamepad rtmidi json`
+`pip install -r requirements.txt`
 
 `python main.py`
 

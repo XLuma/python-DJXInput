@@ -39,6 +39,7 @@ def input_main():
         
 def test_map():
     midi_map = midi.Midi_Map()
+    print(mido.get_input_names())
     inport = mido.open_input(mido.get_input_names()[int(input('Select your midi device\n')) - 1])
     midi_map.fill_object(inport)
     inport.close()

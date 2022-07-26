@@ -11,7 +11,10 @@ buttons = {
     "Y" : vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_Y,
     "LS" : vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_LEFT_SHOULDER,
     "RS" : vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_RIGHT_SHOULDER,
-    # LT = vgamepad.left_trigger(255)
-    # RT = vgamepad.right_trigger(255) 0 to disable
-    "START" : vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_START
+    # LT = vgamepad.VX360Gamepad.left_trigger(255)
+    # RT = vgamepad.VX360Gamepad.right_trigger(255) 0 to disable
+    # Left stick = vgamepad.VX360Gamepad.left_joystick_float()
+    # Right stick = vgamepad.VX360Gamepad.right_joystick_float()
+    "START" : vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_START,
+    "SELECT" : vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_GUIDE
 }

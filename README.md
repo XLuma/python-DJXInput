@@ -1,13 +1,19 @@
 # python-DJXInput
 Program to MIDI ->XInput, written in python
 
+# Why I made this
+For fun. I couldn't find a program that allowed to map MIDI to a game controller, only MIDI to keyboard and mouse. Plus, the only (good) software to do that is Bome's midi translator, which is paid software (granted, has way more features than this program will ever get). But, I needed a way to map a game controller, not a keyboard and mouse. So DJXinput was made.
+
+
 # Usage
 Currently, this program only supports the DDJ-SB3. The reason being it is the reason I am building this program. But, eventually, creating configurations for\n
 other controllers will be possible
 
 To create a new map, see the json resources in the maps folder. Essentially, every json is labelled with the device name, and then you can build a dict similar to the ones there to associate keys, knobs, pads... to button
+
+
 # setup
-`pip install mido vgamepad rtmidi`
+`pip install mido vgamepad rtmidi json`
 
 `python main.py`
 

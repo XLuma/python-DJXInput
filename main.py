@@ -44,6 +44,7 @@ def test_map():
     midi_map.fill_object(inport)
     inport.close()
     midi_map.output_to_json()
+    midi.Midi_Map.load_profile("maps/test.json")
 
 if __name__ == "__main__":
     test_map()

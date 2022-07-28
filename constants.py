@@ -13,6 +13,8 @@ buttons = {
     "RS" : vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_RIGHT_SHOULDER,
     "LTHUMB_CLICK" : vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_LEFT_THUMB,
     "RTHUMB_CLICK" : vgamepad.XUSB_BUTTON.XUSB_GAMEPAD_RIGHT_THUMB,
+    #"LT" : vgamepad.VX360Gamepad.left_trigger(255),
+    #"RT" : vgamepad.VX360Gamepad.right_trigger(255),
     # LT = vgamepad.VX360Gamepad.left_trigger(255)
     # RT = vgamepad.VX360Gamepad.right_trigger(255) 0 to disable
     # Left stick = vgamepad.VX360Gamepad.left_joystick_float()

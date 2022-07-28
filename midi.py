@@ -18,7 +18,8 @@ class Midi_Map: #class to map midi notes to button. maybe need to create a note 
                 msg = inport.receive()
             if (msg.type != 'clock' and msg.velocity != 0):
                 #self.map[button] = msg.note
-                self.map[str(msg.note)] = button
+                self.map[str(msg.note)] = dict()
+                #join in a string event type, underscore note number or control event number
             #TODO: Add support for CC controls, with a deadzone value. might need to improve dict format
             #note : cc sends a control event with a unique value for each knobs. use that for detection of control change events
 
